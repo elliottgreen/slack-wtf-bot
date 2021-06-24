@@ -16,7 +16,7 @@ def slack():
     if not all(k in req.keys() for k in ['text', 'token']):
         return make_response('Improper request.', http.HTTPStatus.BAD_REQUEST)
 
-    if req['token'] not in APP.config['SLACK_TOKENS']:
+    if req['token'] not in APP.config['SLACK_TOKEN']:
         return make_response('Not authorized', 401)
 
     raw = requests.get(APP.config['DATA_URL'])
